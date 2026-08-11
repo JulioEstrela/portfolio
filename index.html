@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Júlio Estrela | Portfólio</title>
+        <link rel="stylesheet" href="./styles.css" />
+    </head>
+    <body>
+        <div class="particulas"></div>
+
+        <nav class="navegacao">
+            <ul class="menu">
+                <li><a href="#inicio" class="menu-link">Início</a></li>
+                <li><a href="#sobre" class="menu-link">Sobre</a></li>
+                <li><a href="#projetos" class="menu-link">Projetos</a></li>
+                <li><a href="#contato" class="menu-link">Contato</a></li>
+            </ul>
+        </nav>
+
+        <main id="inicio" class="cabecalho">
+            <div>
+                <img
+                    src="./img/perfilFoto.jpg"
+                    alt="Foto de perfil Júlio Estrela"
+                    class="foto-perfil"
+                />
+                <h1>Júlio Estrela</h1>
+                <p class="cabecalho-sub-titulo">Desenvolvedor Fullstack</p>
+            </div>
+        </main>
+
+        <section id="sobre" class="sobre">
+            <h2 class="sobre-titulo">Sobre Mim</h2>
+            <div class="sobre-caixa">
+                <p class="sobre-paragrafo">
+                    A minha paixão pela tecnologia vem das possibilidades
+                    ilimitadas que ela oferece. Com ela, já pude criar jogos,
+                    sites e aplicativos. Por isso, eu sempre busco ampliar meus
+                    conhecimentos através de suas diversas áreas de atuação, bem
+                    como aperfeiçoar aquilo que já conheço.
+                </p>
+            </div>
+        </section>
+
+        <section id="projetos" class="projetos">
+            <h2 class="projetos-titulo">Meus Projetos</h2>
+            <div class="projetos-caixa">
+                <a
+                    href="https://github.com/JulioEstrela/gerenciamento-clientes"
+                    target="_blank"
+                    class="projetos-card-link"
+                >
+                    <div class="projetos-card">
+                        <img
+                            src="./img/GerenciamentoClientes.png"
+                            alt="Imagem do Projeto 1"
+                            class="projetos-imagem"
+                        />
+                        <div class="caixa-textos-projeto">
+                            <h3 class="info-projetos">
+                                API de Gerenciamento de Clientes
+                            </h3>
+                            <p class="paragrafo-projetos">
+                                API CRUD de Clientes | ASP.NET MVC | C# |
+                                DevExpress | SQL Server | EntityFramework |
+                                Modelagem DDD
+                            </p>
+                        </div>
+                    </div>
+                </a>
+
+                <a
+                    href="https://cartastrofe.vercel.app/"
+                    target="_blank"
+                    class="projetos-card-link"
+                >
+                    <div class="projetos-card">
+                        <img
+                            src="./img/Cartastrofe.png"
+                            alt="Imagem do Projeto 2"
+                            class="projetos-imagem"
+                        />
+                        <div class="caixa-textos-projeto">
+                            <h3 class="info-projetos">Cartastrofe</h3>
+                            <p class="paragrafo-projetos">
+                                Desenvolvido como TCC no Técnico de Informática
+                                do IFSP.
+                            </p>
+                            <br />
+                            <p class="paragrafo-projetos">
+                                Crie, personalize, jogue e compartilhe jogos de
+                                cartas incríveis — sem precisar de habilidades
+                                de programação!
+                            </p>
+                        </div>
+                    </div>
+                </a>
+
+                <a
+                    href="https://yokohama-detalhes.vercel.app/"
+                    target="_blank"
+                    class="projetos-card-link"
+                >
+                    <div class="projetos-card">
+                        <img
+                            src="./img/YokohamaSeguradora.png"
+                            alt="Imagem do Projeto 3"
+                            class="projetos-imagem"
+                        />
+                        <div class="caixa-textos-projeto">
+                            <h3 class="info-projetos">Yokohama Seguradora</h3>
+                            <p class="paragrafo-projetos">
+                                Projeto desenvolvido durante o Sementes do
+                                Brasil Tech, programa da Tokio Marine em
+                                parceria com a FIAP.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section id="contato" class="contatos">
+            <h2 class="contatos-titulo">Entre em Contato</h2>
+
+            <form
+                class="grupo-form"
+                id="formulario"
+                onsubmit="enviarWhats(event)"
+            >
+                <div class="grupo-form">
+                    <input
+                        type="text"
+                        placeholder="Nome"
+                        id="nome"
+                        class="campo-form"
+                        required
+                    />
+                </div>
+                <div class="grupo-form">
+                    <textarea
+                        class="campo-form"
+                        id="mensagem"
+                        placeholder="Digite sua Mensagem"
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="botao-form">
+                    Enviar Whatsapp
+                </button>
+            </form>
+        </section>
+
+        <script>
+            function enviarWhats(event) {
+                event.preventDefault();
+
+                const nome = document.getElementById("nome").value;
+                const mensagem = document.getElementById("mensagem").value;
+                const telefone = "";
+
+                const texto = `Olá! Me chamo ${nome}. ${mensagem}`;
+                const msgFormatada = encodeURIComponent(texto);
+
+                const url = `https://api.whatsapp.com/send?phone=${telefone}&text=${msgFormatada}`;
+
+                window.open(url, "_blank");
+            }
+        </script>
+    </body>
+</html>
